@@ -16,7 +16,7 @@ spring:
       discovery:
         health-check-path: /actuator/health
         health-check-interval: 15s
-        instance-id: cake-endpoint-admin
+        instance-id: cake-api-admin
   datasource:
     username: ${cake.db.username}
     password: ${cake.db.password}
@@ -28,7 +28,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: MySQLDialect
+    database-platform: net.cakecdn.api.admin.all.config.MySQLDialect
 
 management:
   endpoints:
