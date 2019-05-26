@@ -8,7 +8,7 @@ cake:
 
 spring:
   application:
-    name: cake-endpoint-admin
+    name: cake-api-admin
   cloud:
     consul:
       host: localhost
