@@ -23,12 +23,12 @@ public class TrafficLog {
     private Long userId;
     private Long trafficBytes;
     private Date logTime;
-    private String nodeName;
+    private String nodeTag;
 
-    public TrafficLog(Long userId, Long using, String nodeName) {
+    public TrafficLog(Long userId, Long using, String nodeTag) {
         this.userId = userId;
         this.trafficBytes = using;
         this.logTime = new Date();
-        this.nodeName = nodeName;
+        this.nodeTag = nodeTag;
     }
 }

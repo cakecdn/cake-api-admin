@@ -18,14 +18,6 @@ public class SystemTrafficController {
         this.trafficService = trafficService;
     }
 
-    @PostMapping("/node/{nodeName}")
-    public Map<Long, Long> useTraffics(
-            @RequestBody Map<Long, Long> usedTrafficMap,
-            @PathVariable String nodeName
-    ) {
-        return trafficService.useTraffics(usedTrafficMap, nodeName);
-    }
-
     @PostMapping("/exchange")
     public UserRemainingTraffic useTraffics(
             @RequestParam Long userId,

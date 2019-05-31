@@ -3,6 +3,7 @@ package net.cakecdn.api.admin.node.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * 用户直接访问的CDN终节点
@@ -23,21 +24,27 @@ public class Node {
     @Column(length = 20)
     private Long id;
 
-    @Column(length = 64, unique = true)
     private String name;
+
+    @Column(length = 64, unique = true)
+    private String tag;
 
     private String uploadUrl;
 
     private String downloadUrl;
 
-    private String healthCheckUrl;
+    private int pulseThresholdMs;
 
-    private Long healthCheckPulse;
+    private Date lastPulse;
 
-    private Long totalTrafficBytes;
+    private Long remainingTrafficBytes;
 
-    private Long usedTrafficBytes;
-
-    @Enumerated(EnumType.STRING)
-    private NodeHealthEnum healthStatus;
+    public Node(String tag) {
+        this.tag = tag;
+        this.name = "未命名新节点";
+        this.uploadUrl = "http://localhost/up";
+        this.downloadUrl = "http://localhost/down";
+        this.pulseThresholdMs = 30000;
+        this.remainingTrafficBytes = 10737418240L;
+    }
 }
